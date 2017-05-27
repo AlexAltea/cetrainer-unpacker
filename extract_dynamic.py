@@ -157,15 +157,18 @@ class TrainerHook():
             self._cond.notify()
 
 
+SCRIPT_USAGE = """CheatEngine Trainer Unpacker
+About:    This program extracts and decrypts CheatEngine's .CETRAINER files
+          packed inside arbitrary trainer executables
+Version:  2017-03-12
+Usage:    extract.py path/to/trainer.exe [path/to/trainer.xml]
+          Second argument is optional and defaults to:
+          path/to/trainer.exe.xml
+"""
+
 if __name__ == '__main__':
     if len(sys.argv) <= 1:
-        print("CheatEngine Trainer Decompiler                                             ")
-        print("About:    This program extracts and decrypts CheatEngine's .CETRAINER files")
-        print("          packed inside arbitrary trainer executables                      ")
-        print("Version:  2016-09-21                                                       ")
-        print("Usage:    extract.py path/to/trainer.exe [path/to/trainer.xml]             ")
-        print("          Second argument is optional and defaults to:                     ")
-        print("          path/to/trainer.exe.xml                                          ")
+		print(SCRIPT_USAGE)
     else:
         path = sys.argv[1]
         th = TrainerHook(path)

@@ -1,5 +1,5 @@
-CheatEngine Trainer Decompiler
-==============================
+CheatEngine Trainer Unpacker
+============================
 
 This program extracts and decrypts CheatEngine's `.CETRAINER` files packed inside arbitrary trainer executables.
 
