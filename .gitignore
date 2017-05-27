@@ -1,0 +1,8 @@
+# Python
+/__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Tests
+tests
