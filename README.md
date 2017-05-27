@@ -5,6 +5,10 @@ This program extracts and decrypts CheatEngine's `.CETRAINER` files packed insid
 
 Written in [Python 3.x](https://www.python.org/downloads/).
 
+## Download
+
+Clone the repository from: [https://github.com/AlexAltea/cetrainer-unpacker](https://github.com/AlexAltea/cetrainer-unpacker).
+
 
 ## Usage
 
