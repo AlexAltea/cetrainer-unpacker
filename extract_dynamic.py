@@ -168,7 +168,7 @@ Usage:    extract.py path/to/trainer.exe [path/to/trainer.xml]
 
 if __name__ == '__main__':
     if len(sys.argv) <= 1:
-		print(SCRIPT_USAGE)
+        print(SCRIPT_USAGE)
     else:
         path = sys.argv[1]
         th = TrainerHook(path)
