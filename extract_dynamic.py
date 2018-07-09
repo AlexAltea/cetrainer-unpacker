@@ -105,14 +105,11 @@ def decrypt(pathin, pathout):
 
 # Extracts the .CETRAINER
 class TrainerHook():
-    def __init__(self, path, output=None):
+    def __init__(self, path, output):
         self._lock = threading.Lock()
         self._cond = threading.Condition(self._lock)
         self._procstack = [path]
-        if not output:
-            self._output = path + ".xml"
-        else:
-            self._output = output
+        self._output = output
 
     def run(self):
         while len(self._procstack) > 0:
@@ -166,10 +163,24 @@ Usage:    extract.py path/to/trainer.exe [path/to/trainer.xml]
           path/to/trainer.exe.xml
 """
 
-if __name__ == '__main__':
+def main():
     if len(sys.argv) <= 1:
         print(SCRIPT_USAGE)
+        return
+    # Arguments
+    path = sys.argv[1]
+    if len(sys.argv) >= 3:
+        output = sys.argv[2]
     else:
-        path = sys.argv[1]
-        th = TrainerHook(path)
+        output = path + ".xml"
+    # Process
+    with open(path, 'rb') as f:
+        header = f.read(2)
+    if header == b'MZ':
+        th = TrainerHook(path, output)
         th.run()
+    else:
+        decrypt(path, output)
+
+if __name__ == '__main__':
+    main()
